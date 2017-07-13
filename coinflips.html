@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coinflips</title>
+</head>
+<body>
+ 
+  
+<script>
+
+var headScore = 0;
+var tailScore = 0;
+var record = [];
+var headsHiRecord = 0;
+var headsLoRecord = 0;
+var tailsHiRecord = 0;
+var tailsLoRecord = 0;
+
+console.log('type flip100() to flip 100 times.  Type record to view the log of flips')
+console.log('type flipX() to run flip100 100 times.  The high low record for each category will show.')
+
+flip100 = function flip (){
+
+  for (var i=1; i <=100; i++) {
+
+    compChoice = Math.floor((Math.random() * 2) + 1); 
+    if (compChoice === 2){
+    headScore ++;  
+    }
+
+    else tailScore ++;
+    }
+     
+    console.log(record.push( {heads: headScore, tails: tailScore  }))
+    headScore = 0;
+    tailScore =0; 
+  }
+
+
+flipX = function many (){
+  for (var i=1; i<=100; i++)
+  flip100();
+  headsHiRecord =  Math.max.apply(Math,record.map(function(record){return record.heads;}))
+  headsLoRecord =  Math.min.apply(Math,record.map(function(record){return record.heads;}))
+  tailsHiRecord =  Math.max.apply(Math,record.map(function(record){return record.tails;}))
+  tailsLoRecord =  Math.min.apply(Math,record.map(function(record){return record.tails;}))  
+  console.log('Record for highest Heads Flip: '+ headsHiRecord)
+  console.log('Record for lowest Heads Flip: '+ headsLoRecord)
+  console.log('Record for highest Tails Flip: '+ tailsHiRecord)
+  console.log('Record for lowest Tails Flip: '+ tailsLoRecord)
+}
+
+flipXX = function most () {
+  for (var i=1; i<=100000; i++)
+  flipX();
+}
+
+
+</script>
+
+
+</body>
+</html>

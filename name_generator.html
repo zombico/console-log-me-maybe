@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script>
+
+var hook1 = ['Shining','Magical','Heroic','Crescent','Dragon','Neo','Battle','Masked','Fighting','Dancing','Young','Mega'];
+var noun1 = ['Vampires','Descendants','Sisters','Brothers','Heroes','Knights','Senpai','Schoolgirls','Ninja','Samurai','Robot','Lovers'];
+var connector = ['Of','The','With','Twin','Hidden','-','x','Neo','Z','++','Monster','My'];
+var adj1 = ['Metallic','Black','Sky','Hades','Earth','World','Tokyo','Moon','Obsidian','Crystal','Silver','Golden'];
+var hook2 = ['Eternal','Crimson','Black','X','Battle','Fighter','Zeo','ZX++','Night','Nine','Overdrive','Zero'];
+
+var hook1Result = '';
+var nameCount = 11
+
+console.log('Random Anime Name Generator!  Type userInput() to begin!')
+
+// console.log(hook1[1]);
+
+// var getHook1 = function () {
+// 	hook1Result = 	Math.floor((Math.random() * nameCount) );
+	
+// 	}
+ 
+//  getHook1();
+//  console.log(hook1Result)
+//  console.log(hook1[hook1Result])
+ 
+//  console.log(hook1)
+
+ var randomizer = function thing () {
+	hook1.sort(function(){return 0.5 - Math.random()});
+	noun1.sort(function(){return 0.5 - Math.random()});
+	connector.sort(function(){return 0.5 - Math.random()});
+	adj1.sort(function(){return 0.5 - Math.random()});
+	hook2.sort(function(){return 0.5 - Math.random()});
+	}
+
+
+
+ function nameTime () {
+ console.log(`${hook1.pop()} ${noun1.pop()} ${connector.pop()} ${adj1.pop()} ${hook2.pop()}`)
+}
+
+var userInput = function count() {
+  nameCount = Number(prompt('Choose a number of names to generate (max 12)')); 
+ 	if(nameCount <= 12){
+      	for (var i=1; i <=nameCount; i++) {
+
+		 randomizer();
+		 nameTime();
+
+		}
+	}
+
+	else if (nameCount = NaN ) {
+		alert('Invalid option. Try a number!')
+		count();
+
+	}
+
+ 
+	else {
+
+		alert('Invalid option. Up to 12 names only.')
+		count();
+
+		}	
+	
+
+}
+
+
+</script>
+
+</body>
+</html>

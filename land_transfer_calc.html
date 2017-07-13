@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+<script>
+
+// Purchase Price of Home	Marginal Tax Rate
+// First $55,000	0.5%
+// On $55,000 to $250,000	1.0%
+// On $250,001 to $400,000	1.5%
+// On $400,001 to $2,000,000	2.0%
+// Over $2,000,000	2.5%
+
+// validate inputs on https://www.ratehub.ca/land-transfer-tax
+
+var purchasePrice = 0;
+var tier1 = 0;
+var tier2 = 0;
+var tier3 = 0;
+ 
+var tier4 = 0;
+var tier5 = 0;
+var toronto = 'no'
+var provincialLT = 0
+var municipalLT = 0
+
+
+var inputPrice = function() {
+	purchasePrice =	prompt('How much is the Purchase Price');
+	if(isNaN(purchasePrice)){
+		inputPrice();
+	}
+
+}
+var torontoCheck = function (){  
+	toronto = prompt('Is the property in Toronto? Yes or no').toLowerCase()
+	if(toronto == 'yes' || toronto == 'no'){
+	toronto
+	}
+	else torontoCheck();	
+	
+}
+ 
+
+
+
+
+
+// Main Loop when page loads
+
+
+while (tier1 <= 0){
+	inputPrice();
+	torontoCheck();
+	calcLandTrans();
+	if (toronto == 'yes'){
+		console.log('Municipal Land Transfer Tax: '+ (tier1 + tier2 + tier3 + tier4 + tier5))
+	}
+}
+
+// Land Transfer Calculation 
+
+function calcLandTrans() {
+
+
+if (purchasePrice >= 55000){
+tier1 = 55000 * 0.005}
+else tier1 = purchasePrice * 0.005
+
+// tier2 = 
+if(purchasePrice>55000 && purchasePrice <= 250000){
+tier2 = (purchasePrice - 55000) * 0.01
+}
+else if (purchasePrice > 250000){
+tier2 =( 250000 - 55000 ) * 0.01	
+}
+// tier3 = 
+if(purchasePrice>250000 && purchasePrice <= 400000){
+tier3=	(purchasePrice - 250000 )* 0.015
+}
+else if (purchasePrice > 400000){
+tier3 = (400000-250000) * 0.015
+}
+
+// tier4 = 
+
+if(purchasePrice>400000 && purchasePrice <= 2000000){
+tier4=	(purchasePrice - 400000 )* 0.02
+}
+else if (purchasePrice > 2000000){
+tier4 = (2000000-400000) * 0.02
+}
+
+
+// tier5 =	 
+if(purchasePrice>2000000){
+tier5=	(purchasePrice - 2000000 )* 0.025
+
+}
+
+console.log('Marginal Rate at 0.5%: ' + tier1)
+console.log('Marginal Rate at 1.0%: ' + tier2)
+console.log('Marginal Rate at 1.5%: ' + tier3)
+console.log('Marginal Rate at 2.0%: ' + tier4)
+console.log('Marginal Rate at 2.5%: ' + tier5)
+console.log('Provincial Land Transfer Tax: '+ (tier1 + tier2 + tier3 + tier4 + tier5))
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

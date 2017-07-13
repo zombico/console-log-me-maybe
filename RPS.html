@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<!-- Play rock, paper scissors against the computer that keeps going until someone wins 5 games.
+
+The Computer should randomly draw rock, paper or scissors
+You need to keep count of wins, losses and ties until someone wins.
+You need to validate the input from the user to make sure they don't type in "BOMB" or "123", also be aware of capitalization of "Scissors" etc..
+ -->
+
+
+
+
+
+<script>
+
+
+
+var compScore = 0;
+var userScore = 0;
+var userChoice = '';
+var compChoice = 0; 
+var userInput = 0;
+
+
+var compThrown = function table (){
+	compChoice = Math.floor((Math.random() * 3) + 1); 
+
+	if (compChoice === 1){
+		return 'rock';
+	}
+	else if (compChoice ===2){
+		return 'paper';
+	}
+	else {
+		return 'scissors'
+	}
+ 
+
+}
+
+var userThrown = function input () {
+	userInput = prompt('Select rock, paper, or scissors') ;
+	userInput = userInput.toLowerCase();
+		if (userInput == 'rock' || userInput == 'paper' || userInput == 'scissors'){
+		 
+		 	console.log('User throws ' + userInput)
+			}
+		else {
+			 alert('Invalid option. Try again!')
+			 input()
+			} 
+		}
+  
+var rps = function clash () {
+	userThrown();
+	compThrown(); 
+	console.log('computer throws ' + 	compThrown())
+
+	if (userInput == 'rock' && compChoice == 1 || userInput == 'paper' && compChoice == 2 || userInput == 'scissors' && compChoice == 3  ){	
+		console.log('tie!')
+		console.log(`Player ${userScore} -- Comp ${compScore} `)
+		}
+	else if (userInput == 'rock' && compChoice == 3 || userInput == 'paper' && compChoice == 1 || userInput == 'scissors' && compChoice == 2  ){	
+		console.log('Player wins!')
+		userScore ++;
+		console.log(`Player ${userScore} -- Comp ${compScore} `)
+		}	
+	else {
+		console.log('Comp Wins!')
+		compScore ++;
+		console.log(`Player ${userScore} -- Comp ${compScore} `)
+	}	
+}
+
+while (userScore < 5 && compScore < 5) {
+
+rps();
+
+}
+
+
+
+if (userScore > 4) {
+	console.log('You Win!')
+}
+
+
+if (compScore > 4) {
+	console.log('You Lose!')
+}
+
+// var userInput =   prompt('Select rock, paper, or scissors')
+// userInput = userInput.toLowerCase();
+
+// if (userInput == 'rock' || userInput == 'paper' ||  userInput == 'scissors') {
+// 	userChoice = userInput
+// 	}
+// else { 
+// }
+ 	
+
+// function checker()
+// 	{
+		
+// 		if (userInput == 'rock' || userInput == 'paper' || userInput == 'scissors'){
+// 		var userChoice = userInput;
+// 		}
+// 	} 
+
+// var  userInput = prompt ('Select rock, paper, or scissors');
+
+// var userChoice = userInput;
+
+// userChoice = userChoice.toLowerCase();
+ 
+// 	if (userChoice !== 'rock' || userChoice !== 'paper' || userChoice !== 'scissors'){
+// 	function checker () {userInput = prompt ('Select rock, paper, or scissors');}
+// 	}
+	
+// 	else {
+// 	userInput
+// 	}	
+
+
+// console.log('user throws ' + userChoice)
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
